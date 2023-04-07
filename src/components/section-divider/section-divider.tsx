@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Theme } from '@chakra-ui/react';
+import { useColorMode, Box } from '@chakra-ui/react';
 
-const Wrapper = styled('div')`
+const Wrapper = styled(Box)`
   width: 100%;
   position: absolute;
   top: 0;
@@ -16,13 +16,18 @@ const Wrapper = styled('div')`
     height: 100px;
   }
 
-  .shape-fill {
+  .shape-fill-light {
     /* emotion has access to chakra's theme, just not typed as such */
-    fill: ${({ theme }: any) => theme.colors.blue['100']};
+    fill: ${({ theme }: any) => theme.colors.primaryBg.light};
+  }
+
+  .shape-fill-dark {
+    fill: ${({ theme }: any) => theme.colors.primaryBg.dark};
   }
 `;
 
 const SectionDivider = () => {
+  const { colorMode } = useColorMode();
   return (
     <Wrapper>
       <svg
@@ -33,7 +38,9 @@ const SectionDivider = () => {
       >
         <path
           d="M1200 0L0 0 892.25 114.72 1200 0z"
-          className="shape-fill"
+          className={
+            colorMode === 'dark' ? 'shape-fill-dark' : 'shape-fill-light'
+          }
         ></path>
       </svg>
     </Wrapper>

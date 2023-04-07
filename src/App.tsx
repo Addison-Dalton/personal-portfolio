@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <Box position="relative">
+      <Box position="relative" marginBottom={12}>
         <SectionDivider />
       </Box>
       <Box
@@ -17,6 +17,7 @@ const App = () => {
         width="100%"
         maxWidth="1100px"
         margin="0 auto"
+        padding={5}
         position="relative"
       >
         <Routes>
