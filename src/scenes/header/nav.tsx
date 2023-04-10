@@ -4,7 +4,7 @@ import { Link as RRLink } from 'react-router-dom';
 import ColorModeToggle from 'components/color-mode-toggle';
 import { useColor } from 'utils/hooks';
 const NavBar = () => {
-  const color = useColor('primary');
+  const { color } = useColor('primary');
   return (
     <Flex
       as="nav"
