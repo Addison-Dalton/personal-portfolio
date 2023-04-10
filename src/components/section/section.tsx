@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { Box, Heading, Icon, Divider, useColorMode } from '@chakra-ui/react';
+import { Box, Heading, Icon, Divider } from '@chakra-ui/react';
+import { useColor } from 'utils/hooks';
 import { IconType } from 'react-icons';
 
 type Props = {
@@ -10,8 +11,7 @@ type Props = {
 };
 
 const Section = ({ title, icon, showDivider = true, children }: Props) => {
-  const { colorMode } = useColorMode();
-  const color = colorMode === 'dark' ? 'secondary.dark' : 'secondary.light';
+  const color = useColor('secondary');
   return (
     <Box as="article">
       <Heading

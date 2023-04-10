@@ -1,10 +1,10 @@
-import { Flex, Link, useColorMode } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 import { Link as RRLink } from 'react-router-dom';
 
 import ColorModeToggle from 'components/color-mode-toggle';
-
+import { useColor } from 'utils/hooks';
 const NavBar = () => {
-  const { colorMode } = useColorMode();
+  const color = useColor('primary');
   return (
     <Flex
       as="nav"
@@ -16,13 +16,7 @@ const NavBar = () => {
       width="100%"
       padding={5}
     >
-      <Link
-        as={RRLink}
-        to="/"
-        fontSize="lg"
-        fontWeight="bold"
-        color={colorMode === 'dark' ? 'primary.dark' : 'primary.light'}
-      >
+      <Link as={RRLink} to="/" fontSize="lg" fontWeight="bold" color={color}>
         {'Addison Dalton'}
       </Link>
       <Link as={RRLink} to="/projects">

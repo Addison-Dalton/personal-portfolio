@@ -1,17 +1,13 @@
-import { Box, useColorMode } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { useColor } from 'utils/hooks';
 
 import NavBar from './nav';
 
 const Header = () => {
-  const { colorMode } = useColorMode();
+  const color = useColor('primaryBg');
   // temp height, will eventually hold elements
   return (
-    <Box
-      position="relative"
-      as="header"
-      height="100px"
-      bgColor={colorMode === 'dark' ? 'primaryBg.dark' : 'primaryBg.light'}
-    >
+    <Box position="relative" as="header" height="100px" bgColor={color}>
       <NavBar />
     </Box>
   );
