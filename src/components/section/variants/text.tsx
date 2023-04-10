@@ -4,7 +4,7 @@ import { useColor } from 'utils/hooks';
 import BaseSection, { StyledHeading, SectionProps } from './base';
 
 const TextSection = ({ children, icon, title, ...props }: SectionProps) => {
-  const { color: secondaryColor } = useColor('secondary');
+  const { colors: [secondaryColor] } = useColor(['secondary']);
   const header = useMemo(
     () => (
       <StyledHeading

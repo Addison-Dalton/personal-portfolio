@@ -11,8 +11,10 @@ const TextSection = ({
   href,
   ...props
 }: SectionProps) => {
-  const { color: primaryColor } = useColor('primary');
-  const { color: secondaryColor, isDark } = useColor('secondary');
+  const {
+    colors: [primaryColor, secondaryColor],
+    isDark
+  } = useColor(['primary', 'secondary']);
   const header = useMemo(
     () => (
       <Link to={href || '/'}>
