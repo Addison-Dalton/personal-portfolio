@@ -10,16 +10,16 @@ const theme = {
   },
   colors: {
     primary: {
-      light: 'rgb(68, 51, 255)',
-      dark: 'rgb(97, 123, 255)'
+      light: 'rgb(46, 28, 240)',
+      dark: 'rgb(0, 149, 250)'
     },
     primaryBg: {
       light: 'rgb(190, 227, 248)',
       dark: 'rgb(61, 79, 106)'
     },
     secondary: {
-      light: 'rgb(230, 0, 103)',
-      dark: 'rgb(255, 10, 120)'
+      light: 'rgb(1, 193, 147)',
+      dark: 'rgb(44, 194, 159)'
     }
   }
 };

@@ -8,12 +8,13 @@ const NavBar = () => {
     colors: [primaryColor, primaryBgColor]
   } = useColor(['primary', 'primaryBg']);
   return (
+    // TODO use HStack here?
     <Flex
       as="nav"
       alignItems="center"
+      justifyContent="space-between"
       direction="row"
       backgroundColor={primaryBgColor}
-      gap={3}
       position="fixed"
       top={0}
       width="100%"
@@ -29,19 +30,21 @@ const NavBar = () => {
       >
         {'Addison Dalton'}
       </Link>
-      <Link as={RRLink} to="/projects">
-        {'Projects'}
-      </Link>
-      <Link as={RRLink} to="/work">
-        {'Work'}
-      </Link>
-      <Link as={RRLink} to="/about">
-        {'About'}
-      </Link>
-      <Link as={RRLink} to="/contact">
-        {'Contact'}
-      </Link>
-      <ColorModeToggle />
+      <Flex gap={8} alignItems="center">
+        <Link as={RRLink} to="/projects">
+          {'Projects'}
+        </Link>
+        <Link as={RRLink} to="/work">
+          {'Work'}
+        </Link>
+        <Link as={RRLink} to="/about">
+          {'About'}
+        </Link>
+        <Link as={RRLink} to="/contact">
+          {'Contact'}
+        </Link>
+        <ColorModeToggle />
+      </Flex>
     </Flex>
   );
 };

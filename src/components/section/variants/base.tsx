@@ -32,6 +32,12 @@ export const StyledHeading = styled(Heading)`
     overflow: hidden;
 
     transition: transform 0.2s ease, opacity 0.2s ease;
+
+    @media screen and (max-width: ${({ theme }: any) => theme.breakpoints.md}) {
+      font-size: 0.8em;
+      bottom: 1px;
+      right: 6px;
+    }
   }
 
   &:hover:after {
@@ -48,7 +54,7 @@ export const StyledHeading = styled(Heading)`
 `;
 
 const BaseSection = ({ header, children, showDivider = true }: Props) => (
-  <Box as="article">
+  <Box as="article" maxWidth={['480xp', '600px', '900px', '1280px']}>
     {header}
     <Box padding="0.5rem">{children}</Box>
     {showDivider && <Divider margin="1rem 0" />}
