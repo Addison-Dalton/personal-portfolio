@@ -21,6 +21,7 @@ export const StyledHeading = styled(Heading)`
   position: relative;
   width: fit-content;
   align-items: center;
+  gap: 0.75rem;
 
   &.as-link:after {
     content: '\\2192';
