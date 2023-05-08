@@ -1,4 +1,4 @@
-import { Text, Flex, Link } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import { Link as RRLink } from 'react-router-dom';
 import { MdPalette } from 'react-icons/md';
 

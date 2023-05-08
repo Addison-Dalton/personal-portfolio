@@ -13,13 +13,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
     colors: [primaryColor, secondaryColor]
   } = useColor(['primaryBg', 'secondary']);
   return (
-    <Box
-      flex={1}
-      position="relative"
-      minWidth="300px"
-      maxWidth="500px"
-      height="100%"
-    >
+    <>
       {title && (
         <Box
           display={{ base: 'none', md: 'block' }}
@@ -48,7 +42,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
       >
         {text}
       </Text>
-    </Box>
+    </>
   );
 };
 

@@ -12,7 +12,10 @@ const Projects = () => {
   return (
     <Box as="section">
       {projectData.map(
-        ({ name, imageSrc, githubUrl, projectUrl, description }, index) => (
+        (
+          { name, imageSrc, githubUrl, projectUrl, description, techs },
+          index
+        ) => (
           <Project
             title={name}
             imageSrc={imageSrc}
@@ -20,6 +23,7 @@ const Projects = () => {
             githubUrl={githubUrl}
             projectUrl={projectUrl}
             text={description}
+            techs={techs}
             // reverse on odd numbers
             reverseContent={index % 2 !== 0}
           />
