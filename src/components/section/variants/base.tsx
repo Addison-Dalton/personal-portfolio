@@ -55,10 +55,10 @@ export const StyledHeading = styled(Heading)`
 `;
 
 const BaseSection = ({ header, children, showDivider = true }: Props) => (
-  <Box as="article" maxWidth={['480xp', '600px', '900px', '1280px']}>
+  <Box as="section" maxWidth={['480xp', '600px', '900px', '1280px']}>
     {header}
     <Box padding="0.5rem">{children}</Box>
-    {showDivider && <Divider margin="1rem 0" />}
+    {showDivider && <Divider margin="3rem 0" />}
   </Box>
 );
 

@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { useColor } from 'utils/hooks';
 import IconLink from 'components/icon-link';
 
-type Props = {
+export type ProjectImageProps = {
   imageSrc: string;
   imageAlt?: string;
   githubUrl?: string;
@@ -24,13 +24,13 @@ const ImageContainer = styled(Box)`
   }
 `;
 
-const ProjectImage = ({ imageSrc, imageAlt, githubUrl, projectUrl }: Props) => {
+const ProjectImage = ({ imageSrc, imageAlt, githubUrl, projectUrl }: ProjectImageProps) => {
   const {
     colors: [primaryBgColor]
   } = useColor(['primaryBg']);
 
   return (
-    <Box rounded="md" boxShadow="dark-lg">
+    <Box rounded="md" boxShadow="dark-lg" zIndex={1}>
       <ImageContainer
         roundedTop="md"
         roundedBottom={{ base: '', lg: 'md' }}

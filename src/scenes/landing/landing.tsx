@@ -13,15 +13,15 @@ const Landing = () => {
     "I'm currently a Senior Software Engineer at Ozmo! I am responsible for planning, building, and maintaining features for an internal tool. I am also adept at handling production issues as they arise, ensuring smooth operations and minimizing downtime. With expertise in TypeScript and React for frontend development, as well as Ruby on Rails for backend development, I bring a wealth of technical knowledge and experience to my role.";
 
   return (
-    <Flex direction="column" alignItems={{ base: 'center', md: 'start' }}>
+    // TODO - might move these styles to the <main> element
+    <Flex
+      direction="column"
+      alignItems={{ base: 'center', md: 'start' }}
+      marginTop={10}
+    >
       <Hero />
       {/* Intro */}
-      <Section
-        title="About me"
-        variant="link"
-        href="/about"
-        icon={MdPerson}
-      >
+      <Section title="About me" variant="link" href="/about" icon={MdPerson}>
         <Text fontSize="lg" maxWidth="600px">
           {introText}
         </Text>
