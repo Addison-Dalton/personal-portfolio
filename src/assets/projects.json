@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "name": "Pokedexle",
+      "imageSrc": "/pokedexle.png",
+      "githubUrl": "https://github.com/Addison-Dalton/pokedexle",
+      "projectUrl": "https://pokedexle.app",
+      "description": "Like everyone else, I was caught up in the Wordle craze of early 2022. I was also playing Pokémon Arceus at the time. The idea hit me that Pokémon would be a perfect adaptation, and thus Pokédexle was born. It's been one of my most favorite projects to date."
+    }
+  ]
+}

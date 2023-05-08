@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 
-import Header from './scenes/header';
-import SectionDivider from './components/section-divider';
-import Landing from './scenes/landing';
+import Header from 'scenes/header';
+import SectionDivider from 'components/section-divider';
+import LandingPage from 'scenes/landing';
+import ProjectsPage from 'scenes/projects';
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
         position="relative"
       >
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </Box>
       {/* TODO footer */}
