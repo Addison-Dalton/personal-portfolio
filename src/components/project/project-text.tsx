@@ -22,6 +22,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
     >
       {title && (
         <Box
+          display={{ base: 'none', md: 'block' }}
           position="absolute"
           textAlign={{ base: 'left', md: reverseContent ? 'left' : 'right' }}
           right={reverseContent ? 'initial' : 0}
@@ -36,7 +37,8 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
       )}
       <Text
         fontSize="lg"
-        padding={3}
+        paddingBottom={3}
+        paddingTop={{ base: 8, md: 3 }}
         paddingLeft={{ base: 0, md: reverseContent ? 3 : 12 }}
         paddingRight={{ base: 0, md: reverseContent ? 12 : 3 }}
         roundedRight={reverseContent ? 'none' : 'md'}
