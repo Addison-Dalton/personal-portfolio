@@ -19,7 +19,8 @@
     "paths": {
       "components/*": ["src/components/*"],
       "scenes/*": ["src/scenes/*"],
-      "utils/*": ["src/utils/*"]
+      "utils/*": ["src/utils/*"],
+      "assets/*": ["src/assets/*"]
     }
   },
   "include": ["src"],

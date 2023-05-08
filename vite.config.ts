@@ -1,15 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tsconfigpaths from 'vite-tsconfig-paths';
 import path from 'path';
+
+const generateAlias = (route: string) => path.resolve(__dirname, route);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      components: `${path.resolve(__dirname, './src/components/')}`,
-      scenes: `${path.resolve(__dirname, './src/scenes/')}`,
-      utils: `${(path.resolve(__dirname), './src/utils')}`
-    }
-  }
+  plugins: [react(), tsconfigpaths()]
 });
