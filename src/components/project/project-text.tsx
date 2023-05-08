@@ -5,14 +5,14 @@ import { useColor } from 'utils/hooks';
 export type ProjectTextProps = {
   title?: string;
   text: string | ReactNode;
+  reverseContent?: boolean;
 };
 
-const ProjectText = ({ text, title }: ProjectTextProps) => {
+const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
   const {
     colors: [primaryColor, secondaryColor]
   } = useColor(['primaryBg', 'secondary']);
   return (
-    // TODO - Center text with image, but keep title at top
     <Box
       flex={1}
       position="relative"
@@ -23,8 +23,9 @@ const ProjectText = ({ text, title }: ProjectTextProps) => {
       {title && (
         <Box
           position="absolute"
-          textAlign={{ base: 'left', md: 'right' }}
-          right={0}
+          textAlign={{ base: 'left', md: reverseContent ? 'left' : 'right' }}
+          right={reverseContent ? 'initial' : 0}
+          left={reverseContent ? 0 : 'initial'}
           top="-5rem"
         >
           <Text color={secondaryColor}>{'Featured project'}</Text>
@@ -36,8 +37,10 @@ const ProjectText = ({ text, title }: ProjectTextProps) => {
       <Text
         fontSize="lg"
         padding={3}
-        paddingLeft={{ base: 0, md: 12 }}
-        roundedRight="md"
+        paddingLeft={{ base: 0, md: reverseContent ? 3 : 12 }}
+        paddingRight={{ base: 0, md: reverseContent ? 12 : 3 }}
+        roundedRight={reverseContent ? 'none' : 'md'}
+        roundedLeft={reverseContent ? 'md' : 'none'}
         // TODO - alpha this color some?
         backgroundColor={{ base: '', md: primaryColor }}
       >

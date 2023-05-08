@@ -5,10 +5,20 @@ import ProjectText, { ProjectTextProps } from './project-text';
 
 type Props = ProjectImageProps & ProjectTextProps;
 
-const Project = ({ text, title, ...projectImageProps }: Props) => (
-  <Flex justifyContent={['center', '']} alignItems={['', 'center']} wrap="wrap">
+const Project = ({
+  text,
+  title,
+  reverseContent,
+  ...projectImageProps
+}: Props) => (
+  <Flex
+    justifyContent={['center', '']}
+    alignItems={['', 'center']}
+    wrap="wrap"
+    flexDirection={reverseContent ? 'row-reverse' : 'row'}
+  >
     <ProjectImage {...projectImageProps} />
-    <ProjectText title={title} text={text} />
+    <ProjectText title={title} text={text} reverseContent={reverseContent} />
   </Flex>
 );
 
