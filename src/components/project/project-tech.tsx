@@ -1,4 +1,5 @@
-import { HStack, Tag } from '@chakra-ui/react';
+import { Flex, Tag } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
 import { useColor } from 'utils/hooks';
 
@@ -6,6 +7,12 @@ export type ProjectTechProps = {
   techs?: string[];
   alignTags?: 'left' | 'right';
 };
+
+const StyledFlex = styled(Flex)`
+  li:not(:first-of-type) {
+    margin-left: 1rem;
+  }
+`;
 
 const ProjectTech = ({ techs, alignTags = 'right' }: ProjectTechProps) => {
   const {
@@ -16,19 +23,15 @@ const ProjectTech = ({ techs, alignTags = 'right' }: ProjectTechProps) => {
     return null;
   }
 
-  // TODO figure out mobile
-  // Should they wrap?
-  // Also, inclusion of the tags seems to be delaying when the text should wrap under the image.
   return (
-    <HStack
-      spacing={4}
-      position="absolute"
-      bottom="-2rem"
-      right={alignTags === 'right' ? 0 : 'initial'}
-      left={alignTags === 'left' ? 0 : 'initial'}
+    <StyledFlex
+      as="ul"
+      justifyContent={{ base: 'center', md: alignTags }}
+      wrap="wrap"
     >
       {techs.map((tech) => (
         <Tag
+          as="li"
           size="sm"
           key={tech}
           borderRadius="full"
@@ -37,11 +40,12 @@ const ProjectTech = ({ techs, alignTags = 'right' }: ProjectTechProps) => {
           boxShadow="none"
           border="solid 1px"
           borderColor={secondaryColor}
+          marginBottom={2}
         >
           {tech}
         </Tag>
       ))}
-    </HStack>
+    </StyledFlex>
   );
 };
 

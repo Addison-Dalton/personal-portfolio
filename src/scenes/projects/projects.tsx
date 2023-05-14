@@ -17,6 +17,7 @@ const Projects = () => {
           index
         ) => (
           <Project
+            key={name}
             title={name}
             imageSrc={imageSrc}
             imageAlt={name}

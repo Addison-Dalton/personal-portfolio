@@ -17,11 +17,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
       {title && (
         <Box
           display={{ base: 'none', md: 'block' }}
-          position="absolute"
           textAlign={{ base: 'left', md: reverseContent ? 'left' : 'right' }}
-          right={reverseContent ? 'initial' : 0}
-          left={reverseContent ? 0 : 'initial'}
-          top="-5rem"
         >
           <Text color={secondaryColor}>{'Featured project'}</Text>
           <Heading as="h3" fontSize="3xl">
@@ -32,7 +28,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
       <Text
         fontSize="lg"
         paddingBottom={3}
-        paddingTop={{ base: 8, md: 3 }}
+        paddingTop={{ base: 0, md: 3 }}
         paddingLeft={{ base: 0, md: reverseContent ? 3 : 12 }}
         paddingRight={{ base: 0, md: reverseContent ? 12 : 3 }}
         roundedRight={reverseContent ? 'none' : 'md'}

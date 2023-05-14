@@ -1,10 +1,8 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { FaGithub } from 'react-icons/fa';
 import styled from '@emotion/styled';
 
 import { useColor } from 'utils/hooks';
-import IconLink from 'components/icon-link';
+import ProjectLinks from './project-links';
 
 export type ProjectImageProps = {
   imageSrc: string;
@@ -24,7 +22,12 @@ const ImageContainer = styled(Box)`
   }
 `;
 
-const ProjectImage = ({ imageSrc, imageAlt, githubUrl, projectUrl }: ProjectImageProps) => {
+const ProjectImage = ({
+  imageSrc,
+  imageAlt,
+  githubUrl,
+  projectUrl
+}: ProjectImageProps) => {
   const {
     colors: [primaryBgColor]
   } = useColor(['primaryBg']);
@@ -54,28 +57,17 @@ const ProjectImage = ({ imageSrc, imageAlt, githubUrl, projectUrl }: ProjectImag
             height="100%"
             margin="auto"
           >
-            {githubUrl && (
-              <IconLink
-                icon={FaGithub}
-                href={githubUrl}
-                fontSize="6xl"
-                isExternal
-              />
-            )}
-            {projectUrl && (
-              <IconLink
-                icon={ExternalLinkIcon}
-                href={projectUrl}
-                fontSize="6xl"
-                isExternal
-              />
-            )}
+            <ProjectLinks
+              githubUrl={githubUrl}
+              projectUrl={projectUrl}
+              boxSize="4em"
+            />
           </Flex>
         </Box>
         <Image src={imageSrc} alt={imageAlt} />
       </ImageContainer>
       <Box
-        display={{ base: 'flex', lg: 'none' }}
+        display={{ base: 'flex', md: 'none' }}
         justifyContent="center"
         gap={10}
         roundedBottom="md"
@@ -84,23 +76,7 @@ const ProjectImage = ({ imageSrc, imageAlt, githubUrl, projectUrl }: ProjectImag
         paddingTop={2}
         backgroundColor={primaryBgColor}
       >
-        {/* TODO - link color against background not great in light mode */}
-        {githubUrl && (
-          <IconLink
-            icon={FaGithub}
-            href={githubUrl}
-            fontSize="3xl"
-            isExternal
-          />
-        )}
-        {projectUrl && (
-          <IconLink
-            icon={ExternalLinkIcon}
-            href={projectUrl}
-            fontSize="3xl"
-            isExternal
-          />
-        )}
+        <ProjectLinks githubUrl={githubUrl} projectUrl={projectUrl} />
       </Box>
     </Box>
   );
