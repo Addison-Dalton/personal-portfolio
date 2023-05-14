@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Divider } from '@chakra-ui/react';
 import Project from 'components/project';
 import { useColor } from 'utils/hooks';
 
@@ -11,25 +11,36 @@ const Projects = () => {
 
   return (
     <Box as="section">
-      {projectData.map(
-        (
-          { name, imageSrc, githubUrl, projectUrl, description, techs },
-          index
-        ) => (
-          <Project
-            key={name}
-            title={name}
-            imageSrc={imageSrc}
-            imageAlt={name}
-            githubUrl={githubUrl}
-            projectUrl={projectUrl}
-            text={description}
-            techs={techs}
-            // reverse on odd numbers
-            reverseContent={index % 2 !== 0}
-          />
-        )
-      )}
+      {/* TODO - simple intro */}
+      <Flex as="ul" flexDirection="column" alignItems="center" gap="3rem">
+        {projectData.map(
+          (
+            { name, imageSrc, githubUrl, projectUrl, description, techs },
+            index
+          ) => (
+            <>
+              <Project
+                key={name}
+                as="li"
+                title={name}
+                imageSrc={imageSrc}
+                imageAlt={name}
+                githubUrl={githubUrl}
+                projectUrl={projectUrl}
+                text={description}
+                techs={techs}
+                // reverse on odd numbers
+                reverseContent={index % 2 !== 0}
+              />
+              <Divider
+                key={`project-divider-${index}`}
+                width="75%"
+              />
+            </>
+          )
+        )}
+      </Flex>
+      {/* TODO link to github for other projects? */}
     </Box>
   );
 };

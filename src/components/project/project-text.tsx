@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Box, Text, Heading } from '@chakra-ui/react';
+import { Box, Text, Heading, Hide } from '@chakra-ui/react';
 import { useColor } from 'utils/hooks';
 
 export type ProjectTextProps = {
@@ -13,13 +13,15 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
     colors: [primaryColor, secondaryColor]
   } = useColor(['primaryBg', 'secondary']);
   return (
-    <>
+    <Box>
       {title && (
         <Box
-          display={{ base: 'none', md: 'block' }}
-          textAlign={{ base: 'left', md: reverseContent ? 'left' : 'right' }}
+          textAlign={{ base: 'center', md: reverseContent ? 'left' : 'right' }}
+          marginBottom={{ base: 1, md: 3 }}
         >
-          <Text color={secondaryColor}>{'Featured project'}</Text>
+          <Hide below="md">
+            <Text color={secondaryColor}>{'Featured project'}</Text>
+          </Hide>
           <Heading as="h3" fontSize="3xl">
             {title}
           </Heading>
@@ -38,7 +40,7 @@ const ProjectText = ({ text, title, reverseContent }: ProjectTextProps) => {
       >
         {text}
       </Text>
-    </>
+    </Box>
   );
 };
 

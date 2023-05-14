@@ -1,7 +1,7 @@
-import { Flex, Tag } from '@chakra-ui/react';
+import { Flex, Show, Hide } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
-import { useColor } from 'utils/hooks';
+import TagList from 'components/tag-list';
 
 export type ProjectTechProps = {
   techs?: string[];
@@ -10,42 +10,31 @@ export type ProjectTechProps = {
 
 const StyledFlex = styled(Flex)`
   li:not(:first-of-type) {
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
   }
 `;
 
 const ProjectTech = ({ techs, alignTags = 'right' }: ProjectTechProps) => {
-  const {
-    colors: [secondaryColor]
-  } = useColor(['secondary']);
-
   if (!techs || techs.length === 0) {
     return null;
   }
 
   return (
-    <StyledFlex
-      as="ul"
-      justifyContent={{ base: 'center', md: alignTags }}
-      wrap="wrap"
-    >
-      {techs.map((tech) => (
-        <Tag
-          as="li"
-          size="sm"
-          key={tech}
-          borderRadius="full"
-          variant="outline"
-          color={secondaryColor}
-          boxShadow="none"
-          border="solid 1px"
-          borderColor={secondaryColor}
-          marginBottom={2}
-        >
-          {tech}
-        </Tag>
-      ))}
-    </StyledFlex>
+    <>
+      <Show above="md">
+        <TagList
+          items={techs}
+          justifyContent={{ base: 'center', md: alignTags }}
+        />
+      </Show>
+      <Hide above="md">
+        <TagList
+          items={techs}
+          itemsCutoff={3}
+          justifyContent={{ base: 'center', md: alignTags }}
+        />
+      </Hide>
+    </>
   );
 };
 
