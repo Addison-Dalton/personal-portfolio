@@ -34,38 +34,13 @@ const ProjectImage = ({
 
   return (
     <Box rounded="md" boxShadow="dark-lg" zIndex={1}>
-      <ImageContainer
+      <Image
+        boxSize={['xs', 'sm']}
         roundedTop="md"
         roundedBottom={{ base: '', lg: 'md' }}
-        boxSize={['xs', 'sm']}
-      >
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
-          className="image-overlay"
-          backgroundColor="rgba(44, 194, 159, 0.5)"
-          opacity={0}
-          transition="opacity 0.2s linear"
-        >
-          <Flex
-            justifyContent="space-between"
-            alignItems="center"
-            maxWidth="40%"
-            height="100%"
-            margin="auto"
-          >
-            <ProjectLinks
-              githubUrl={githubUrl}
-              projectUrl={projectUrl}
-              boxSize="4em"
-            />
-          </Flex>
-        </Box>
-        <Image src={imageSrc} alt={imageAlt} />
-      </ImageContainer>
+        src={imageSrc}
+        alt={imageAlt}
+      />
       <Box
         display={{ base: 'flex', md: 'none' }}
         justifyContent="center"
