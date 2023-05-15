@@ -1,5 +1,4 @@
-import { Flex, Box, Image } from '@chakra-ui/react';
-import styled from '@emotion/styled';
+import { Box, Image } from '@chakra-ui/react';
 
 import { useColor } from 'utils/hooks';
 import ProjectLinks from './project-links';
@@ -10,17 +9,6 @@ export type ProjectImageProps = {
   githubUrl?: string;
   projectUrl?: string;
 };
-
-const ImageContainer = styled(Box)`
-  position: relative;
-  overflow: hidden;
-  transition: border 0.2s ease-in;
-
-  &:hover .image-overlay {
-    display: block;
-    opacity: 1;
-  }
-`;
 
 const ProjectImage = ({
   imageSrc,

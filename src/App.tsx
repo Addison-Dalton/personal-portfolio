@@ -16,7 +16,7 @@ const App = () => {
       <Box
         as="main"
         width="100%"
-        maxWidth="1100px"
+        maxWidth="925px"
         margin="0 auto"
         padding={5}
         position="relative"

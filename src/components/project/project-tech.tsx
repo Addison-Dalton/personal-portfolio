@@ -1,5 +1,4 @@
-import { Flex, Show, Hide } from '@chakra-ui/react';
-import styled from '@emotion/styled';
+import { Show, Hide } from '@chakra-ui/react';
 
 import TagList from 'components/tag-list';
 
@@ -7,12 +6,6 @@ export type ProjectTechProps = {
   techs?: string[];
   alignTags?: 'left' | 'right';
 };
-
-const StyledFlex = styled(Flex)`
-  li:not(:first-of-type) {
-    /* margin-left: 1rem; */
-  }
-`;
 
 const ProjectTech = ({ techs, alignTags = 'right' }: ProjectTechProps) => {
   if (!techs || techs.length === 0) {
